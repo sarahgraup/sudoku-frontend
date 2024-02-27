@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { FormControl, Select, MenuItem, Box } from "@mui/material";
 import "./DifficultySelector.css";
 /** Component for Difficulty Selector

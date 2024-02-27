@@ -68,7 +68,7 @@ function App() {
   const updateBoardAndStep = (newStep) => {
     const currentSolverStep = solverSteps[newStep];
 
-    const { actionType, row, col, boardState, reason } = currentSolverStep;
+    const { actionType, row, col, boardState, reason} = currentSolverStep;
 
     if (boardState) {
       setBoard(boardState.map((row) => [...row]));
