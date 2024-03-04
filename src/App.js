@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import SudokuBoard from "./SudokuBoard/SudokuBoard";
 import ControlPanel from "./Controls/ControlPanel";
 import DifficultySelector from "./Controls/DifficultySelector";
@@ -65,18 +65,33 @@ function App() {
   };
 
   /**updates board and current step */
-  const updateBoardAndStep = (newStep) => {
-    const currentSolverStep = solverSteps[newStep];
+  // const updateBoardAndStep = (newStep) => {
+  //   const currentSolverStep = solverSteps[newStep];
 
-    const { actionType, row, col, boardState, reason} = currentSolverStep;
+  //   const { actionType, row, col, boardState, reason} = currentSolverStep;
 
-    if (boardState) {
-      setBoard(boardState.map((row) => [...row]));
-    }
+  //   if (boardState) {
+  //     setBoard(boardState.map((row) => [...row]));
+  //   }
 
-    setCurrentStep(newStep);
-    setHighlightedCell({ row, col, actionType });
-  };
+  //   setCurrentStep(newStep);
+  //   setHighlightedCell({ row, col, actionType });
+  // };
+  const updateBoardAndStep = useCallback(
+    (newStep) => {
+      const currentSolverStep = solverSteps[newStep];
+
+      const { actionType, row, col, boardState } = currentSolverStep;
+
+      if (boardState) {
+        setBoard(boardState.map((row) => [...row]));
+      }
+
+      setCurrentStep(newStep);
+      setHighlightedCell({ row, col, actionType });
+    },
+    [solverSteps, currentStep, solverStatus]
+  );
 
   /**
    * updates board and currentstep on 1 second interval
@@ -110,7 +125,37 @@ function App() {
     }
 
     return () => clearInterval(timer);
-  }, [currentStep, solverSteps, solverStatus]);
+  }, [currentStep, solverSteps, solverStatus, updateBoardAndStep]);
+
+  // useEffect(() => {
+  //   let timer;
+
+  //   if (
+  //     solverStatus === "running" &&
+  //     currentStep === null &&
+  //     solverSteps.length > 0
+  //   ) {
+  //     setCurrentStep(0);
+  //     updateBoardAndStep(0);
+  //   } else if (solverStatus === "running" || solverStatus === "resumed") {
+  //     timer = setInterval(() => {
+  //       if (
+  //         solverSteps.length > 0 &&
+  //         currentStep !== null &&
+  //         (solverStatus === "running" || solverStatus === "resumed")
+  //       ) {
+  //         if (currentStep < solverSteps.length - 1) {
+  //           updateBoardAndStep(currentStep + 1);
+  //         } else {
+  //           clearInterval(timer);
+  //           setSolverStatus("stopped");
+  //         }
+  //       }
+  //     }, 1000);
+  //   }
+
+  //   return () => clearInterval(timer);
+  // }, [currentStep, solverSteps, solverStatus]);
 
   /**solves puzzle or sets solver status to paused based on user action */
   const controlSolver = async (action) => {
