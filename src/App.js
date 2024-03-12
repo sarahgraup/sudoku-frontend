@@ -90,8 +90,9 @@ function App() {
       setCurrentStep(newStep);
       setHighlightedCell({ row, col, actionType });
     },
-    [solverSteps, currentStep, solverStatus]
+    [solverSteps]
   );
+  //currentStep, solverStatus
 
   /**
    * updates board and currentstep on 1 second interval
