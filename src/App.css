@@ -64,6 +64,7 @@
   }
   .control-panel {
     gap: 5px; /* Reduced space between buttons */
+    padding: 0.5em;
   }
   div.MuiBox-root,
   div.MuiSelect-select,
