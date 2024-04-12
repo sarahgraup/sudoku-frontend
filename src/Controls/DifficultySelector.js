@@ -32,7 +32,7 @@ function DifficultySelector({ onSelectPuzzle, puzzles }) {
   };
 
   return (
-    <Box sx={{ minWidth: 400, display: "flex", gap: 2 }}>
+    <Box sx={{ minWidth: 200, display: "flex", gap: 2 }}>
       {["easy", "medium", "hard"].map((difficulty) => (
         <FormControl key={difficulty} fullWidth>
           <Select
