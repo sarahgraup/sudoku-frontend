@@ -73,7 +73,7 @@
   div.MuiSelect-select,
   div.MuiFormControl-root,
   div.MuiSelect-select {
-    font-size: 1rem; /* Smaller font size for select input and menu items */
+    font-size: 0.65em; /* Smaller font size for select input and menu items */
     padding: 0.2em;
     text-transform: capitalize;
   }
