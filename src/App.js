@@ -92,7 +92,7 @@ function App() {
     },
     [solverSteps]
   );
-  //currentStep, solverStatus
+
 
   /**
    * updates board and currentstep on 1 second interval
@@ -128,35 +128,7 @@ function App() {
     return () => clearInterval(timer);
   }, [currentStep, solverSteps, solverStatus, updateBoardAndStep]);
 
-  // useEffect(() => {
-  //   let timer;
 
-  //   if (
-  //     solverStatus === "running" &&
-  //     currentStep === null &&
-  //     solverSteps.length > 0
-  //   ) {
-  //     setCurrentStep(0);
-  //     updateBoardAndStep(0);
-  //   } else if (solverStatus === "running" || solverStatus === "resumed") {
-  //     timer = setInterval(() => {
-  //       if (
-  //         solverSteps.length > 0 &&
-  //         currentStep !== null &&
-  //         (solverStatus === "running" || solverStatus === "resumed")
-  //       ) {
-  //         if (currentStep < solverSteps.length - 1) {
-  //           updateBoardAndStep(currentStep + 1);
-  //         } else {
-  //           clearInterval(timer);
-  //           setSolverStatus("stopped");
-  //         }
-  //       }
-  //     }, 1000);
-  //   }
-
-  //   return () => clearInterval(timer);
-  // }, [currentStep, solverSteps, solverStatus]);
 
   /**solves puzzle or sets solver status to paused based on user action */
   const controlSolver = async (action) => {
