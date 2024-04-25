@@ -1,4 +1,3 @@
-import "./ControlPanel.css";
 import { Button } from '@mui/material';
 
 /** Component for Control Panel

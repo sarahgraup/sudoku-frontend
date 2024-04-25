@@ -1,5 +1,4 @@
 import { FormControl, Select, MenuItem, Box } from "@mui/material";
-import "./DifficultySelector.css";
 /** Component for Difficulty Selector
  *  Renders selection of difficulty levels and specified puzzles
  *
