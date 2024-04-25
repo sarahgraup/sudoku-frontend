@@ -18,7 +18,7 @@ import { Button } from '@mui/material';
 function ControlPanel({ onStart, onPause, onResume, onStepForward, onStepBackward }) {
     return (
         <div className="control-panel">
-            <Button sx={{ padding: '6px 12px', fontSize: '0.75rem' }} variant="outlined" onClick={onStart}>Start</Button>
+            <Button sx={{ padding: '6px 12px', fontSize: '0.75rem'}} variant="outlined" onClick={onStart}>Start</Button>
             <Button sx={{ padding: '6px 12px', fontSize: '0.75rem' }} variant="outlined" onClick={onPause}>Pause</Button>
             <Button sx={{ padding: '6px 12px', fontSize: '0.75rem' }} variant="outlined" onClick={onResume}>Resume</Button>
             <Button sx={{ padding: '6px 12px', fontSize: '0.75rem' }} variant="outlined" onClick={onStepForward}>Forward</Button>

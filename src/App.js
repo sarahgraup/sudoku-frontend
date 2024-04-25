@@ -65,18 +65,6 @@ function App() {
   };
 
   /**updates board and current step */
-  // const updateBoardAndStep = (newStep) => {
-  //   const currentSolverStep = solverSteps[newStep];
-
-  //   const { actionType, row, col, boardState, reason} = currentSolverStep;
-
-  //   if (boardState) {
-  //     setBoard(boardState.map((row) => [...row]));
-  //   }
-
-  //   setCurrentStep(newStep);
-  //   setHighlightedCell({ row, col, actionType });
-  // };
   const updateBoardAndStep = useCallback(
     (newStep) => {
       const currentSolverStep = solverSteps[newStep];
