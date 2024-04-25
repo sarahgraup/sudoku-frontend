@@ -48,7 +48,7 @@ function DifficultySelector({ onSelectPuzzle, puzzles }) {
             </MenuItem>
             {puzzles[difficulty]?.map((puzzle, index) => (
               <MenuItem key={index} value={puzzle}>
-                {puzzle}
+                {puzzle.slice(0,-4)}
               </MenuItem>
             ))}
           </Select>
