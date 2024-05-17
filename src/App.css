@@ -56,7 +56,7 @@
   }
 
   .App-header p {
-    font-size: 0.9em; /* Reduces the font size for paragraphs */
+    font-size: 0.4em; /* Reduces the font size for paragraphs */
   }
   .control-panel .MuiButton-root {
     padding: 0.2em 0.4em; /* Smaller padding */
