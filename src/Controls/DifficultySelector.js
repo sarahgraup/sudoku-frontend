@@ -41,14 +41,17 @@ function DifficultySelector({ onSelectPuzzle, puzzles }) {
             variant="outlined"
             onChange={handleChange(difficulty)}
             renderValue={renderDifficultyValue(difficulty)}
-            inputProps={{ "aria-label": `${difficulty} puzzle selection` }}
+            inputProps={{
+              "aria-label": `${difficulty} puzzle selection`,
+              id: `${difficulty}-selector`,
+            }}
           >
             <MenuItem disabled value="">
               <em>{difficulty.toUpperCase()}</em>
             </MenuItem>
             {puzzles[difficulty]?.map((puzzle, index) => (
               <MenuItem key={index} value={puzzle}>
-                {puzzle.slice(0,-4)}
+                {puzzle.slice(0, -4)}
               </MenuItem>
             ))}
           </Select>
